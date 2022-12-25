@@ -15,7 +15,7 @@ i_2_cases = {
     'That is world we live in.': ['That is the world we live in.'],
     'I found purse that I had lost.': ['I found the purse that I had lost.'],
     'What was last book that you loved': ['What was the last book that you loved'],
-    'What is tittle of that poem we read last week ?': ['What is the tittle of that poem we read last week ?'],
+    'What is title of that poem we read last week ?': ['What is the title of that poem we read last week ?'],
     'They delivered new flat screen TV I ordered last week':  ['They delivered the new flat screen TV I ordered last '
                                                                'week'], 
 }
@@ -24,11 +24,12 @@ i_2_cases = {
 # all of _the_ Xs
 i_3_cases = {
     'All of students were present.': ['All of the students were present.'],
-
+    'All of possible directories either do not exist or are readonly.': ['All of the possible directories either do '
+                                                                         'not exist or are readonly.'],
 }
 
 # I.4
-# _the_ X of/for the Y
+# _the_ X of/for Y <where Y is definite>
 i_4_cases = {
     'They crossed borders of Ukraine.': ['They crossed the borders of Ukraine.'],
     'They crossed border of Ukraine.': ['They crossed the border of Ukraine.'],
@@ -67,19 +68,14 @@ ii_3_cases = {
 }
 
 # II.4
-# on/at/.. _the_ top/left/right/bottom
-ii_4_cases = {
-    'He is at bottom': ['He is at the bottom'],
-}
-
-# II.5
 # a good/bad/new _X_
-ii_5_cases = {
+ii_4_cases = {
     'I bought new TV set yesterday.': ['I bought a new TV set yesterday.'],
     'He has good idea.': ['He has a good idea.'],
     'That was incredible story!': ['That was an incredible story!'],
     'It’s beautiful city': ['It’s a beautiful city'],
     'I\'m looking for new job.': ['I\'m looking for a new job.'],
+    'That would be good place for me.': ['That would be a good place for me.'],
 }
 
 
@@ -89,27 +85,21 @@ iii_1_cases = {
     'There was spider in my shoe.': ['There was a spider in my shoe.'],
     'There was girl on the bus.': ['There was a girl on the bus.'],
     'There were documents on the table': [],
-    'That would be good place for me.': ['That would be a good place for me.'],
 }
 
 # III.2
 # a/the Adj X
 iii_2_cases = {
     'My father is police officer.': ['My father is a police officer.'],
+    'She is talented coach.': ['She is a talented coach.'],
     'Let’s look at int array closer': ['Let’s look at an int array closer', 'Let’s look at the int array closer'],
     'Volunteers help at food bank': ['Volunteers help at a food bank', 'Volunteers help at the food bank'],
 }
 
 # III.3
-# it is _a/the_ X
+# _a/the_ X <when X is a singular noun used as part of a predicate or a subject or direct object>
 iii_3_cases = {
     'He is actor.': ['He is an actor.', 'He is the actor.'],
-}
-
-
-# III.4
-# a/the X <when X is singular subject or direct object>
-iii_4_cases = {
     'Girl came to me': ['A girl came to me', 'The girl came to me'],
     'I met girl': ['I met a girl', 'I met the girl'],
 }
@@ -171,11 +161,6 @@ def test_ii_4():
         assert article_adviser(sent) == ii_4_cases[sent]
 
 
-def test_ii_5():
-    for sent in ii_5_cases.keys():
-        assert article_adviser(sent) == ii_5_cases[sent]
-
-
 def test_iii_1():
     for sent in iii_1_cases.keys():
         assert article_adviser(sent) == iii_1_cases[sent]
@@ -189,11 +174,6 @@ def test_iii_2():
 def test_iii_3():
     for sent in iii_3_cases.keys():
         assert article_adviser(sent) == iii_3_cases[sent]
-
-
-def test_iii_4():
-    for sent in iii_4_cases.keys():
-        assert article_adviser(sent) == iii_4_cases[sent]
 
 
 def test_no_article():

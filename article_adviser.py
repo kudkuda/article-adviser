@@ -89,7 +89,7 @@ def article_adviser(sentence):
         # 3. all of _the_ Xs
         elif root.head.text.lower() == 'of' and root.head.head.lemma_ == 'all' and root.morph.get('Number') == ['Plur']:
             corrections.append(generate_the(root))
-        # 4. _the_ X of/for the Y
+        # 4. _the_ X of/for Y <where Y is definite>
         elif any(child.text.lower() in ['of', 'for'] and
                  any(is_definite(grandchild) for grandchild in child.children) for child in root.children):
             corrections.append(generate_the(root))
@@ -106,11 +106,7 @@ def article_adviser(sentence):
         # 3. __ X <when X is uncountable>
         elif root.text.lower() in UNCOUNTABLE_NOUNS_LIST:
             continue
-        # 4. on/at/.. _the_ top/left/right/bottom
-        elif root == first_token and root.dep_ == 'pobj' and root.text.lower() in ['top', 'left', 'right',
-                                                                                   'bottom']:
-            corrections.append(generate_the(root))
-        # 5. a good/bad/new _X_
+        # 4. a good/bad/new _X_
         elif root != first_token and first_token.text.lower() in ['good', 'bad', 'new', 'beautiful', 'old', 'ugly',
                                                                   'nice', 'incredible', 'great']:
             corrections.append(generate_a(root))
@@ -128,11 +124,8 @@ def article_adviser(sentence):
             else:
                 # _a/the_ Adj X
                 corrections.extend([generate_a(root), generate_the(root)])
-        # 3. it is _a/the_ X
-        elif root.dep_ == 'attr' and root.morph.get('Number') != ['Plur']:
-            corrections.extend([generate_a(root), generate_the(root)])
-        # 4. a/the X <when X is singular subject or direct object>
-        elif root.dep_ in ['nsubj', 'dobj'] and root.morph.get('Number') == ['Sing']:
+        # 3. _a/the_ X <when X is a singular noun used as part of a predicate or a subject or direct object>
+        elif root.dep_ in ['attr', 'nsubj', 'dobj'] and root.morph.get('Number') == ['Sing']:
             corrections.extend([generate_a(root), generate_the(root)])
         else:
             continue
