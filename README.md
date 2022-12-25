@@ -125,12 +125,12 @@ Noun phrases with preposed adjectival or nominal modifiers require an indefinite
 Same noun phrases used in other syntactic contexts may require either an indefinite or a definite article depending on the context.
 
     'Let’s look at _an_ int array closer' or 'Let’s look at _the_ int array closer',
-    'Volunteers help at _a_ food bank', 'Volunteers help at _the_ food bank',
+    'Volunteers help at _a_ food bank' or 'Volunteers help at _the_ food bank',
 
 III.3. `it is _a/the_ X`
 
 Singular nouns used as a part of a predicate or as a subject or a direct object can be used with an indefinite or a definite article depending on the context.
 
-    'He is _an_ actor.', 'He is _the_ actor.',
-    '_A_ girl came to me', '_The_ girl came to me',
-    'I met _a_ girl', 'I met _the_ girl',
+    'He is _an_ actor.' or 'He is _the_ actor.',
+    '_A_ girl came to me' or '_The_ girl came to me',
+    'I met _a_ girl' or 'I met _the_ girl',
