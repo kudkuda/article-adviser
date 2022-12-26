@@ -6,6 +6,7 @@ from article_adviser import article_adviser
 i_1_cases = {
     'In greatest city in world': ['In the greatest city in the world'],
     'I am greatest man': ['I am the greatest man'],
+    'I met most beautiful cat': ['I met the most beautiful cat'],
 }
 
 # I.2
@@ -105,7 +106,7 @@ iii_3_cases = {
 }
 
 no_article_cases = {
-    #'He was part of a group of students',
+    # 'He was part of a group of students',
     'She is coming by plane.',
     'He is always there at night.',
     'He goes to work when I go home.',

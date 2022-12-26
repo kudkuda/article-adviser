@@ -117,7 +117,7 @@ def article_adviser(sentence):
                 'Sing']:
             corrections.append(generate_a(root))
         # 2. _a/the_ Adj X
-        elif first_token != root and first_token.dep_ in ['amod', 'compound'] and root.morph.get('Number') == ['Sing']:
+        elif root != first_token and first_token.dep_ in ['amod', 'compound'] and root.morph.get('Number') == ['Sing']:
             if root.dep_ == 'attr':
                 # it is _a_ Adj X
                 corrections.append(generate_a(root))
@@ -125,7 +125,7 @@ def article_adviser(sentence):
                 # _a/the_ Adj X
                 corrections.extend([generate_a(root), generate_the(root)])
         # 3. _a/the_ X <when X is a singular noun used as part of a predicate or a subject or direct object>
-        elif root.dep_ in ['attr', 'nsubj', 'dobj'] and root.morph.get('Number') == ['Sing']:
+        elif root == first_token and root.dep_ in ['attr', 'nsubj', 'dobj'] and root.morph.get('Number') == ['Sing']:
             corrections.extend([generate_a(root), generate_the(root)])
         else:
             continue
