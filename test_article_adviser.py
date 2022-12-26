@@ -83,6 +83,7 @@ iii_2_cases = {
     'Sugar is bad for you': [],
     'He showed great bravery.': [],
     'Would you like milk with your cookies?': [],
+    'She gives good advice': [],
 }
 
 # III.3
