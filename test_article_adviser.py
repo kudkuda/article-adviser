@@ -30,6 +30,7 @@ ii_1_cases = {
     'We passed same exam': ['We passed the same exam'],
     'Yuri Gagarin was first person in space.': ['Yuri Gagarin was the first person in space.'],
     'Look on next page': ['Look on the next page'],
+    'In English only definite article is the': ['In English the only definite article is the'],
 }
 
 # II.2

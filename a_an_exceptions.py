@@ -12,5 +12,6 @@ a_with_vowel_exceptions = [
     'used',
     'use',
     'unison',
-    'one'
+    'one',
+    'euro',
 ]

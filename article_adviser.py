@@ -91,7 +91,7 @@ def article_adviser(sentence):
         # II. Specific lexical rules
         # 1. _the_ first/same/other/main... X
         elif root != first_token and first_token.text.lower() in ['first', 'second', 'same', 'other', 'main', 'primary',
-                                                                  'last', 'next', 'previous', 'current']:
+                                                                  'last', 'next', 'previous', 'current', 'only']:
             corrections.append(generate_the(root))
         # 2. _the_ X <when there's only one X>
         elif root == first_token and root.text.lower() in ['sun', 'sky', 'internet', 'truth', 'sea', 'ocean',
