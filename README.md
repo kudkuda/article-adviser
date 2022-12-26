@@ -35,7 +35,7 @@ A noun phrase with superlative adjective as a modifier requires a definite artic
 
 Examples:
 
-    'In _the_ greatest city in world',
+    'In _the_ greatest city in the world',
     'I am _the_ greatest man'
 
 I.2. `_the_ X + RelClause`
@@ -79,7 +79,7 @@ II.3. `all of _the_ Xs`
 
 II.4. `be __ part of`
 
-Normally no article is used in the expression `be part of`:
+Normally no article is used in the expression `be part of`.
 
     'He was part of a group of students',
 
