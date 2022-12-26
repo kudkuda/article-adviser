@@ -12,7 +12,7 @@ Once you've got all the requirements in place, you should be able to simply run
 ````
 pytest
 ````
-in this folder, and get the idea of the particular cases `article-adviser` is able to help with.
+in this folder, and get the idea of the particular cases `article-adviser` can help with.
 
 ## How it works
 
