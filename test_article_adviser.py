@@ -7,6 +7,8 @@ i_1_cases = {
     'In greatest city in world': ['In the greatest city in the world'],
     'I am greatest man': ['I am the greatest man'],
     'I met most beautiful cat': ['I met the most beautiful cat'],
+    'Best teachers are ones that change their minds': ['The best teachers are the ones that change their minds'],
+    'Explore schools with best teachers in your area': ['Explore schools with the best teachers in your area'],
 }
 
 # I.2
@@ -21,17 +23,46 @@ i_2_cases = {
                                                                'week'], 
 }
 
-# I.3
+# II.1
+# _the_ first/same/other/main... X
+ii_1_cases = {
+    'Main part is fantastic.': ['The main part is fantastic.'],
+    'We passed same exam': ['We passed the same exam'],
+    'Yuri Gagarin was first person in space.': ['Yuri Gagarin was the first person in space.'],
+    'Look on next page': ['Look on the next page'],
+}
+
+# II.2
+# _the_ X <when there's only one X>
+ii_2_cases = {
+    'Now sun is shining and there aren\'t any clouds in sky.': [
+        'Now the sun is shining and there aren\'t any clouds in the sky.'],
+    'On Internet, nobody knows you\'re a dog': ['On the Internet, nobody knows you\'re a dog'],
+    'Truth is that drugs can bring pleasure but also truth is that they can damage health': ['The truth is that drugs '
+                                                                                             'can bring pleasure but '
+                                                                                             'also the truth is that '
+                                                                                             'they can damage health']
+}
+
+# II.3
 # all of _the_ Xs
-i_3_cases = {
+ii_3_cases = {
     'All of students were present.': ['All of the students were present.'],
     'All of possible directories either do not exist or are readonly.': ['All of the possible directories either do '
                                                                          'not exist or are readonly.'],
 }
 
-# I.4
+# II.4
+# be __ part of
+ii_4_cases = {
+    'He was part of a group of students': [],
+    'Be part of our story': [],
+    'You get to be part of shaping future': ['You get to be part of shaping the future'],
+}
+
+# III.1
 # _the_ X of/for Y <where Y is definite>
-i_4_cases = {
+iii_1_cases = {
     'They crossed borders of Ukraine.': ['They crossed the borders of Ukraine.'],
     'They crossed border of Ukraine.': ['They crossed the border of Ukraine.'],
     'They crossed border of the sovereign state.': ['They crossed the border of the sovereign state.'],
@@ -44,33 +75,30 @@ i_4_cases = {
     'Do you know answer for my question?': ['Do you know the answer for my question?'],
 }
 
-# II.1
-# _the_ first/same/other/main... X
-ii_1_cases = {
-    'Main part is fantastic.': ['The main part is fantastic.'],
-    'We passed same exam': ['We passed the same exam'],
-    'Yuri Gagarin was first person in space.': ['Yuri Gagarin was the first person in space.'],
-}
-
-# II.2
-# _the_ X <when there's only one X>
-ii_2_cases = {
-    'Now sun is shining and there aren\'t any clouds in sky.': [
-        'Now the sun is shining and there aren\'t any clouds in the sky.'],
-}
-
-# II.3
+# III.2
 # __ X <when X is uncountable>
-ii_3_cases = {
+iii_2_cases = {
     'Time is money': [],
     'Sugar is bad for you': [],
     'He showed great bravery.': [],
     'Would you like milk with your cookies?': [],
 }
 
-# II.4
-# a good/bad/new _X_
-ii_4_cases = {
+# III.3
+# there is _a_ X
+iii_3_cases = {
+    'There was spider in my shoe.': ['There was a spider in my shoe.'],
+    'There was girl on the bus.': ['There was a girl on the bus.'],
+    'There were documents on the table': [],
+}
+
+# III.4
+# a/the Adj X
+iii_4_cases = {
+    'My father is police officer.': ['My father is a police officer.'],
+    'She is talented coach.': ['She is a talented coach.'],
+    'Let’s look at int array closer': ['Let’s look at an int array closer', 'Let’s look at the int array closer'],
+    'Volunteers help at food bank': ['Volunteers help at a food bank', 'Volunteers help at the food bank'],
     'I bought new TV set yesterday.': ['I bought a new TV set yesterday.'],
     'He has good idea.': ['He has a good idea.'],
     'That was incredible story!': ['That was an incredible story!'],
@@ -79,34 +107,15 @@ ii_4_cases = {
     'That would be good place for me.': ['That would be a good place for me.'],
 }
 
-
-# III.1
-# there is _a_ X
-iii_1_cases = {
-    'There was spider in my shoe.': ['There was a spider in my shoe.'],
-    'There was girl on the bus.': ['There was a girl on the bus.'],
-    'There were documents on the table': [],
-}
-
-# III.2
-# a/the Adj X
-iii_2_cases = {
-    'My father is police officer.': ['My father is a police officer.'],
-    'She is talented coach.': ['She is a talented coach.'],
-    'Let’s look at int array closer': ['Let’s look at an int array closer', 'Let’s look at the int array closer'],
-    'Volunteers help at food bank': ['Volunteers help at a food bank', 'Volunteers help at the food bank'],
-}
-
-# III.3
+# III.5
 # _a/the_ X <when X is a singular noun used as part of a predicate or a subject or direct object>
-iii_3_cases = {
+iii_5_cases = {
     'He is actor.': ['He is an actor.', 'He is the actor.'],
     'Girl came to me': ['A girl came to me', 'The girl came to me'],
     'I met girl': ['I met a girl', 'I met the girl'],
 }
 
 no_article_cases = {
-    # 'He was part of a group of students',
     'She is coming by plane.',
     'He is always there at night.',
     'He goes to work when I go home.',
@@ -130,16 +139,6 @@ def test_i_1():
 def test_i_2():
     for sent in i_2_cases.keys():
         assert article_adviser(sent) == i_2_cases[sent]
-
-
-def test_i_3():
-    for sent in i_3_cases.keys():
-        assert article_adviser(sent) == i_3_cases[sent]
-
-
-def test_i_4():
-    for sent in i_4_cases.keys():
-        assert article_adviser(sent) == i_4_cases[sent]
 
 
 def test_ii_1():
@@ -175,6 +174,16 @@ def test_iii_2():
 def test_iii_3():
     for sent in iii_3_cases.keys():
         assert article_adviser(sent) == iii_3_cases[sent]
+
+
+def test_iii_4():
+    for sent in iii_4_cases.keys():
+        assert article_adviser(sent) == iii_4_cases[sent]
+
+
+def test_iii_5():
+    for sent in iii_5_cases.keys():
+        assert article_adviser(sent) == iii_5_cases[sent]
 
 
 def test_no_article():

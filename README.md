@@ -31,7 +31,7 @@ The following rules attempt to cover only a small subset of possible contexts wh
 
 I.1. `_the_ AdjSup X`
 
-Noun phrase with superlative adjective as a modifier requires a definite article.
+A noun phrase with superlative adjective as a modifier requires a definite article.
 
 Examples:
 
@@ -40,7 +40,7 @@ Examples:
 
 I.2. `_the_ X + RelClause`
 
-Noun phrase heading a finite relative clause requires a definite article.
+A noun phrase heading a finite relative clause requires a definite article.
 
 Examples:
 
@@ -49,29 +49,13 @@ Examples:
     'What was _the_ last book that you loved',
     'What is _the_ title of that poem we read last week?'
 
-I.3. `all of _the_ Xs`
-
-`all of` is normally used with plural nouns with determiners.
-
-    'All of _the_ students were present.',
-    'All of _the_ possible directories either do not exist or are readonly.'
-
-I.4. `_the_ X of/for the Y`
-
-Noun phrase with a dependent prepositional phrase heading a definite noun phrase requires a definite article.
-
-
-    'They crossed _the_ borders of Ukraine.',
-    'They crossed _the_ borders of the sovereign state.',
-    'They crossed _the_ borders of their state.',
-
 
 ### II. Specific lexical rules
 
 
 II.1. `_the_ first/same/other/main... X`
 
-Certain adjective modifiers require the use of a definite article.
+Certain adjective modifiers tend to be used with a definite article.
 
 
     '_The_ main part is fantastic.',
@@ -86,8 +70,33 @@ A definite article is required with nouns denoting unique objects.
     'Now _the_ sun is shining and there aren\'t any clouds in _the_ sky.',
 
 
-II.3. `__ X <when X is uncountable>`
+II.3. `all of _the_ Xs`
 
+`all of` is normally used with plural nouns with determiners.
+
+    'All of _the_ students were present.',
+    'All of _the_ possible directories either do not exist or are readonly.'
+
+II.4. `be __ part of`
+
+Normally no article is used in the expression `be part of`:
+
+    'He was part of a group of students',
+
+
+### III. Other rules
+
+III.1. `_the_ X of/for the Y`
+
+A noun phrase with a dependent prepositional phrase heading a definite noun phrase requires a definite article.
+
+
+    'They crossed _the_ borders of Ukraine.',
+    'They crossed _the_ borders of the sovereign state.',
+    'They crossed _the_ borders of their state.',
+
+
+III.2. `__ X <when X is uncountable>`
 
 All the remaining rules do not apply to uncountable nouns.
 
@@ -97,16 +106,7 @@ All the remaining rules do not apply to uncountable nouns.
     'Would you like milk with your cookies?',
 
 
-II.4. `a good/bad/new _X_`
-
-Certain adjective modifiers require the use of an indefinite article.
-
-    'I bought _a_ new TV set yesterday.',
-    'He has _a_ good idea.',
-
-### III. Other syntactic rules
-
-III.1. `there is _a_ X`
+III.3. `there is _a_ X`
 
 
 An indefinite article is used after `there is` or `there are`.
@@ -115,7 +115,7 @@ An indefinite article is used after `there is` or `there are`.
     'There was _a_ girl on the bus.',
 
 
-III.2. `a/the Adj X`
+III.4. `a/the Adj X`
 
 Noun phrases with preposed adjectival or nominal modifiers require an indefinite article when used as part of a predicate.
 
@@ -127,7 +127,12 @@ Same noun phrases used in other syntactic contexts may require either an indefin
     'Let’s look at _an_ int array closer' or 'Let’s look at _the_ int array closer',
     'Volunteers help at _a_ food bank' or 'Volunteers help at _the_ food bank',
 
-III.3. `it is _a/the_ X`
+At the same time, certain adjective modifiers require the use of an indefinite article.
+
+    'I bought _a_ new TV set yesterday.',
+    'He has _a_ good idea.',
+
+III.5. `it is _a/the_ X`
 
 Singular nouns used as a part of a predicate or as a subject or a direct object can be used with an indefinite or a definite article depending on the context.
 

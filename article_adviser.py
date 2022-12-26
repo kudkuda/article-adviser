@@ -41,8 +41,9 @@ def choose_a_an(text):
 
 
 def should_lower_next_word(np_root):
+    # if we insert an article on sentence start we may need to lower the first character of the next token
     first_token = np_root.left_edge
-    return first_token.pos_ != 'PROPN' and not first_token.is_upper
+    return first_token.pos_ != 'PROPN' and first_token.is_sent_start and not first_token.is_upper
 
 
 def may_require_an_article(np_root):
@@ -86,45 +87,47 @@ def article_adviser(sentence):
         # 2. _the_ X +RelClause
         elif any(child.dep_ == 'relcl' and child.morph.get('VerbForm') != ['Inf'] for child in root.children):
             corrections.append(generate_the(root))
-        # 3. all of _the_ Xs
-        elif root.head.text.lower() == 'of' and root.head.head.lemma_ == 'all' and root.morph.get('Number') == ['Plur']:
-            corrections.append(generate_the(root))
-        # 4. _the_ X of/for Y <where Y is definite>
-        elif any(child.text.lower() in ['of', 'for'] and
-                 any(is_definite(grandchild) for grandchild in child.children) for child in root.children):
-            corrections.append(generate_the(root))
 
         # II. Specific lexical rules
         # 1. _the_ first/same/other/main... X
         elif root != first_token and first_token.text.lower() in ['first', 'second', 'same', 'other', 'main', 'primary',
-                                                                  'last']:
+                                                                  'last', 'next', 'previous', 'current']:
             corrections.append(generate_the(root))
         # 2. _the_ X <when there's only one X>
         elif root == first_token and root.text.lower() in ['sun', 'sky', 'internet', 'truth', 'sea', 'ocean',
-                                                           'world']:
+                                                           'world', 'future']:
             corrections.append(generate_the(root))
-        # 3. __ X <when X is uncountable>
+        # 3. all of _the_ Xs
+        elif root.head.text.lower() == 'of' and root.head.head.lemma_ == 'all' and root.morph.get('Number') == [
+                'Plur']:
+            corrections.append(generate_the(root))
+        # 4. be __ part of
+        elif root.text.lower() in ['part'] and root.dep_ == 'attr' and any(
+                child.text.lower() == 'of' for child in root.children):
+            continue
+
+        # III. Other rules
+        # 1. _the_ X of/for Y <where Y is definite>
+        elif any(child.text.lower() in ['of', 'for'] and
+                 any(is_definite(grandchild) for grandchild in child.children) for child in root.children):
+            corrections.append(generate_the(root))
+        # 2. __ X <when X is uncountable>
         elif root.text.lower() in UNCOUNTABLE_NOUNS_LIST:
             continue
-        # 4. a good/bad/new _X_
-        elif root != first_token and first_token.text.lower() in ['good', 'bad', 'new', 'beautiful', 'old', 'ugly',
-                                                                  'nice', 'incredible', 'great']:
-            corrections.append(generate_a(root))
-
-        # III. Other syntactic rules
-        # 1. there is _a_ X
+        # 3. there is _a_ X
         elif any(child.text.lower() in ['there'] for child in root.head.children) and root.morph.get('Number') == [
                 'Sing']:
             corrections.append(generate_a(root))
-        # 2. _a/the_ Adj X
+        # 4. _a/the_ Adj X
         elif root != first_token and first_token.dep_ in ['amod', 'compound'] and root.morph.get('Number') == ['Sing']:
-            if root.dep_ == 'attr':
+            if root.dep_ == 'attr' or first_token.text.lower() in ['good', 'bad', 'new', 'beautiful', 'old', 'ugly',
+                                                                   'nice', 'incredible', 'great']:
                 # it is _a_ Adj X
                 corrections.append(generate_a(root))
             else:
                 # _a/the_ Adj X
                 corrections.extend([generate_a(root), generate_the(root)])
-        # 3. _a/the_ X <when X is a singular noun used as part of a predicate or a subject or direct object>
+        # 5. _a/the_ X <when X is a singular noun used as part of a predicate or a subject or direct object>
         elif root == first_token and root.dep_ in ['attr', 'nsubj', 'dobj'] and root.morph.get('Number') == ['Sing']:
             corrections.extend([generate_a(root), generate_the(root)])
         else:
