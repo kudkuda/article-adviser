@@ -14,6 +14,14 @@ pytest
 ````
 in this folder, and get the idea of the particular cases `article-adviser` can help with.
 
+You can also run
+
+````
+python test_on_one_sentence.py
+````
+
+in order to test the function on any sentence.
+
 ## How it works
 
 `article-adviser` is a function that takes a string containing the text of one sentence as an argument.
